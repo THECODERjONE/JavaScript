@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <script>
+        // What are results of these expressions?
+        "" + 1 + 0      // 10
+        "" - 1 + 0      // -10 WRONG; it actually is -1, since the operator "-" only works with numbers so "undefined" becomes 0
+        true + false    // true; 1 WRONG; just 1, since its math operation
+        6 / "3"         // 6 WRONG; string 3 is converted to number 3 by the operator /
+        "2" * "3"       // 6
+        4 + 5 + "px"    // 9px
+        "$" + 4 + 5     // $45
+        "4" - 2         // 2
+        "4px" - 2       // NaN
+        "  -9  " + 5    // "  -9  5"
+        "  -9  " - 5    // no answer WRONG; as "-" forces the string to number then it becomes -9-5
+        null + 1        // 1
+        undefined + 1   // NaN
+        " \t \n" - 2    // no asnwer WRONG; \t and \n are space character just like "regular" spaces in html, so they are just spaces for the code, making the string empty
+    </script>
+    </body>
+</html>
