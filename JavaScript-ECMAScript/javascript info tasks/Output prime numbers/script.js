@@ -10,14 +10,13 @@
 
 // P.S. The code should work for any n, not be hard-tuned for any fixed value.
 
-let n;
+let n = 10;
+let rollOver = 2;
 
-for (; n >= 2;) {
-    if ((n % 1) != 0) {
-        if (condition) {
-            
-        }
-        
+findPrimes:
+for (;rollOver <= n; rollOver++) {
+    for (findDivisor = 2; findDivisor < rollOver; findDivisor++) {
+        if (rollOver%findDivisor === 0) continue findPrimes;
     }
-    else n=n++;
+    alert(rollOver);
 }
