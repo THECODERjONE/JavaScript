@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Using the if..else construct, write the code which asks: ‘What is the “official” name of JavaScript?’ -->
+
+        <!-- If the visitor enters “ECMAScript”, then output “Right!”, otherwise – output: “You don’t know? ECMAScript!” -->
+        <script>
+            let realJavaScriptName = prompt('What is the "official" name of JavaScript', "");
+            if (realJavaScriptName == "ECMAScript") { 
+                alert("Right!")
+            }
+                else {
+                    alert("You don't know? ECMAScript!")
+                }
+
+                // WRONG; encased else inside if, should have used "==" instead of "=" at the "if" check
+        </script>
+    </body>
+</html>
