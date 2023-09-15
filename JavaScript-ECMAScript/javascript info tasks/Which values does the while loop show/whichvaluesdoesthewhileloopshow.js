@@ -1,12 +1,21 @@
-For every loop iteration, write down which value it outputs and then compare it with the solution.
+//For every loop iteration, write down which value it outputs and then compare it with the solution.
 
-Both loops alert the same values, or not?
+//Both loops alert the same values, or not?
 
-The prefix form ++i:
+//Untill interaction 4, they share outcome and alert values. The second loop tho, it has an extra interaction.
 
-let i = 0;
+//The prefix form ++i:
+
+let i;
+
+i = 0;
 while (++i < 5) alert( i );
-The postfix form i++
 
-let i = 0;
+//A: I1:1, I2:2, I3:3, I4:4.
+
+//The postfix form i++
+
+i = 0;
 while (i++ < 5) alert( i );
+
+//A: I1:1, I2:2, I3:3, I4:4, I5:5.
