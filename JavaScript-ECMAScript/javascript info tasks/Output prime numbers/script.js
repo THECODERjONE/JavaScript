@@ -11,12 +11,12 @@
 // P.S. The code should work for any n, not be hard-tuned for any fixed value.
 
 let n = 10;
-let rollOver = 2;
+let testPrime = 2;
 
 findPrimes:
-for (;rollOver <= n; rollOver++) {
-    for (findDivisor = 2; findDivisor < rollOver; findDivisor++) {
-        if (rollOver%findDivisor === 0) continue findPrimes;
+for (;testPrime <= n; testPrime++) {
+    for (let testDivisor = 2; testDivisor < testPrime; testDivisor++) {
+        if (testPrime%testDivisor === 0) continue findPrimes;
     }
-    alert(rollOver);
+    alert(testPrime);
 }
