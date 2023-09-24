@@ -17,7 +17,7 @@ function isPrime(n) {
 showPrimes(10);
   // let n = 10;
   // let testPrime = 2;
-  
+  // Testing editing directly from GitHub's webpage
   // findPrimes:
   // for (;testPrime <= n; testPrime++) {
   //     for (let testDivisor = 2; testDivisor < testPrime; testDivisor++) {
