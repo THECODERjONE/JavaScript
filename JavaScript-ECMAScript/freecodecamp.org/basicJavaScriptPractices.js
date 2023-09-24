@@ -751,9 +751,152 @@ while (false) {
       }; 
 }
 
-// 
+// Accessing Object Properties with Dot Notation
 
-// 
+// Read in the property values of testObj using dot notation.
+// Set the variable hatValue equal to the object's property hat and
+// set the variable shirtValue equal to the object's property shirt.
+
+while (false) {
+    // Setup
+const testObj = {
+    "hat": "ballcap",
+    "shirt": "jersey",
+    "shoes": "cleats"
+  };
+  
+  // Only change code below this line
+  const hatValue = testObj.hat;      // Change this line
+  const shirtValue = testObj.shirt;    // Change this line
+}
+
+// Accessing Object Properties with Bracket Notation
+
+// Read the values of the properties an entree and
+// the drink of testObj using bracket notation and
+// assign them to entreeValue and drinkValue respectively.
+
+while (false) {
+    // Setup
+const testObj = {
+    "an entree": "hamburger",
+    "my side": "veggies",
+    "the drink": "water"
+  };
+  
+  // Only change code below this line
+  const entreeValue = testObj["an entree"];   // Change this line
+  const drinkValue = testObj["the drink"];    // Change this line
+}
+
+// Accessing Object Properties with Variables
+
+// Set the playerNumber variable to 16.
+// Then, use the variable to look up the player's name and assign it to player.
+
+while (false) {
+    // Setup
+const testObj = {
+    12: "Namath",
+    16: "Montana",
+    19: "Unitas"
+  };
+  
+  // Only change code below this line
+  const playerNumber = 16;  // Change this line
+  const player = testObj[playerNumber];   // Change this line
+}
+
+// Updating Object Properties
+
+// Update the myDog object's name property.
+// Let's change her name from Coder to Happy Coder.
+// You can use either dot or bracket notation.
+
+while (false) {
+    // Setup
+const myDog = {
+    "name": "Coder",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["freeCodeCamp Campers"]
+  };
+  
+  // Only change code below this line
+  
+  myDog.name = "Happy Coder";
+}
+
+// Add New Properties to a JavaScript Object
+
+// Add a bark property to myDog and set it to a dog sound, such as "woof".
+// You may use either dot or bracket notation.
+
+while (false) {
+    const myDog = {
+        "name": "Happy Coder",
+        "legs": 4,
+        "tails": 1,
+        "friends": ["freeCodeCamp Campers"]
+      };
+      
+      myDog.bark = "woof";
+      
+}
+
+// Delete Properties from a JavaScript Object
+
+// Delete the tails property from myDog. You may use either dot or bracket notation.
+
+while (false) {
+    // Setup
+const myDog = {
+    "name": "Happy Coder",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["freeCodeCamp Campers"],
+    "bark": "woof"
+  };
+  
+  // Only change code below this line
+  delete myDog.tails;
+}
+
+// Using Objects for Lookups
+
+// Convert the switch statement into an object called lookup.
+// Use it to look up val and assign the associated string to the result variable.
+
+while (false) {
+    // Setup
+function phoneticLookup(val) {
+    let result = "";
+  
+    // Only change code below this line
+    let lookup = {
+      "alpha": "Adams",
+      "bravo": "Boston",
+      "charlie": "Chicago",
+      "delta": "Denver",
+      "echo": "Easy",
+      "foxtrot": "Frank"
+    };
+    result = lookup[val];
+    // Only change code above this line
+    return result;
+  }
+  
+  phoneticLookup("charlie");
+}
+
+// Testing Objects for Properties
+
+// Modify the function checkObj to test if the object passed to the function parameter obj
+// contains the specific property passed to the function parameter checkProp.
+// If the property passed to checkProp is found on obj, return that property's value.
+// If not, return Not Found.
+
+
 
 while (false) {
     
