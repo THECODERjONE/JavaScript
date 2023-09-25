@@ -899,5 +899,421 @@ function phoneticLookup(val) {
 
 
 while (false) {
-    
+  function checkObj(obj, checkProp) {
+    // Only change code below this line
+    if (obj.hasOwnProperty(checkProp)) {
+      return obj[checkProp];                      // I should practice this one
+    }
+    else return "Not Found";
+    // Only change code above this line
+  }
+}
+
+// Manipulating Complex Objects
+
+// Add a new album to the myMusic array.
+// Add artist and title strings, release_year number, and a formats array of strings.
+
+while (false) {
+  const myMusic = [
+    {
+      "artist": "Billy Joel",
+      "title": "Piano Man",
+      "release_year": 1973,
+      "formats": [
+        "CD",
+        "8T",
+        "LP"
+      ],
+      "gold": true
+    }
+  ];
+  
+  myMusic.unshift(
+    {
+      "artist": "Nujabes",
+      "title": "Departure",
+      "release_year": 2004,
+      "formats": [
+        "CD",
+        "Album",
+        "mp3",
+      ]
+    }
+  )
+}
+
+// Accessing Nested Objects
+
+// Access the myStorage object and assign the contents of the glove box property
+// to the gloveBoxContents variable. Use dot notation for all properties where possible,
+// otherwise use bracket notation.
+
+
+while (false) {
+  const myStorage = {
+    "car": {
+      "inside": {
+        "glove box": "maps",
+        "passenger seat": "crumbs"
+       },
+      "outside": {
+        "trunk": "jack"
+      }
+    }
+  };
+  
+  const gloveBoxContents = myStorage.car.inside['glove box'];
+}
+
+// Accessing Nested Arrays
+
+
+// Using dot and bracket notation, set the variable secondTree to the second
+// item in the trees list from the myPlants object.
+
+
+
+while (false) {
+  const myPlants = [
+    {
+      type: "flowers",
+      list: [
+        "rose",
+        "tulip",
+        "dandelion"
+      ]
+    },
+    {
+      type: "trees",
+      list: [
+        "fir",
+        "pine",
+        "birch"
+      ]
+    }
+  ];
+  
+  const secondTree = myPlants[1].list[1];
+}
+
+// Record Collection
+
+/*
+You are creating a function that aids in the maintenance of a musical album collection. The collection is organized as an object that contains multiple albums which are also objects. Each album is represented in the collection with a unique id as the property name. Within each album object, there are various properties describing information about the album. Not all albums have complete information.
+
+The updateRecords function takes 4 arguments represented by the following function parameters:
+
+records - an object containing several individual albums
+id - a number representing a specific album in the records object
+prop - a string representing the name of the album’s property to update
+value - a string containing the information used to update the album’s property
+Complete the function using the rules below to modify the object passed to the function.
+
+Your function must always return the entire records object.
+If value is an empty string, delete the given prop property from the album.
+If prop isn't tracks and value isn't an empty string, assign the value to that album's prop.
+If prop is tracks and value isn't an empty string, you need to update the album's tracks array. First, if the album does not have a tracks property, assign it an empty array. Then add the value as the last item in the album's tracks array.
+Note: A copy of the recordCollection object is used for the tests. You should not directly modify the recordCollection object. 
+*/
+
+while (false) {
+  // Setup
+const recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+  if (value === "") {
+    delete records[id][prop];
+  } else if (prop !== "tracks" && value !== "") {
+    records[id][prop] = value;
+  } else if (prop === "tracks" && value !== "") {
+    if (!records[id].hasOwnProperty("tracks")) {
+      records[id][prop] = [];
+    }
+    records[id][prop].push(value);
+  }
+  return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+}
+
+// Iterate with JavaScript While Loops
+
+// Add the numbers 5 through 0 (inclusive) in descending order to myArray using a while loop.
+
+while (false) {
+  // Setup
+const myArray = [];
+
+// Only change code below this line
+let i= 0;
+
+while (i <= 5){
+  myArray.unshift(i);
+  i++;
+}
+}
+
+// Iterate with JavaScript For Loops
+
+// Use a for loop to push the values 1 through 5 onto myArray.
+
+while (false) {
+// Setup
+const myArray = [];
+
+// Only change code below this line
+for (let n = 0; myArray !== [1, 2, 3, 4, 5]; n++) {  // This shouldnt be used this way
+  if ((n !== 0) && (n <= 5)) {
+    myArray.push(n);
+  }
+}
+}
+
+// *********** They propose this: ***********
+
+var ourArray = [];              // This part is just
+for (var i = 0; i < 5; i++) {   // the explanation part,
+  ourArray.push(i);             // not the result
+}                               // that they juggest.
+
+var myArray = [];
+for (var i = 1; i < 6; i++) {
+  myArray.push(i);
+}
+
+// Iterate Odd Numbers With a For Loop
+
+// Push the odd numbers from 1 through 9 to myArray using a for loop.
+
+while (false) {
+// Setup
+const myArray = [];
+
+// Only change code below this line
+for (let n = 0; n <= 9; n++) {
+  if ((n !== 0) && (n % 2 !== 0)) {
+    myArray.push(n);
+  }
+}
+}
+
+/* They would have done like this
+// Setup
+var myArray = [];
+
+// Only change code below this line.
+
+for (var i = 1; i < 10; i += 2) {
+  myArray.push(i);
+}
+*/
+
+/* I woudl do this way if I were to forcefully count every 2
+// Setup
+const myArray = [];
+
+// Only change code below this line
+for (let n = 0; n <= 9; n++) {
+  if (n !== 0) {
+    myArray.push(n);
+    n++;
+  }
+}
+*/
+
+// Count Backwards With a For Loop
+
+// Push the odd numbers from 9 through 1 to myArray using a for loop.
+
+while (false) {
+  // Setup
+const myArray = [];
+
+// Only change code below this line
+for (let n = 10; n > 0; n -= 2) {
+  if ((n % 2) == 0) {
+    --n;
+  }
+  myArray.push(n);
+}
+}
+
+// Iterate Through an Array with a For Loop
+
+// Declare and initialize a variable total to 0.
+// Use a for loop to add the value of each element of the myArr array to total.
+
+while (false) {
+  // Setup
+const myArr = [2, 3, 4, 5, 6];
+
+// Only change code below this line
+let total = 0;
+
+for (let n = 0; n < myArr.length; n++) {
+  total = total + myArr[n];
+}
+}
+
+// Nesting For Loops
+
+// Modify function multiplyAll so that
+// it returns the product of all the numbers in the sub-arrays of arr.
+
+while (false) {
+  function multiplyAll(arr) {
+    let product = 1;
+    // Only change code below this line
+  for (let c = 0; c < arr.length; c++) {
+    for (let s = 0; s < arr[c].length; s++) {   // I need to practice arrays much more.
+      product = product * arr[c][s];
+    }
+  }
+    // Only change code above this line
+    return product;
+  }
+  
+  multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+}
+
+// Iterate with JavaScript Do...While Loops
+
+// Change the while loop in the code to a do... while loop so the loop
+// will push only the number 10 to myArray, and i will be equal to 11
+// when your code has finished running.
+
+while (false) {
+  // Setup
+const myArray = [];
+let i = 10;
+
+// Only change code below this line
+do {
+  myArray.push(i);
+  i++;
+} while (i < 10);
+}
+
+// Replace Loops using Recursion
+
+// Write a recursive function, sum(arr, n), that returns
+// the sum of the first n elements of an array arr.
+
+while (false) {
+  function sum(arr, n) {
+    // Only change code below this line
+    if(n <= 0) {
+      return 0;
+    } else { 
+      return sum(arr, n - 1) + arr[(n - 1)];
+    }
+    // Only change code above this line
+  }
+}
+
+// Profile Lookup
+
+/*
+We have an array of objects representing different people in our contacts lists.
+
+A lookUpProfile function that takes name and a property (prop) as arguments has been pre-written for you.
+
+The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+
+If both are true, then return the "value" of that property.
+
+If name does not correspond to any contacts then return the string No such contact.
+
+If prop does not correspond to any valid properties of a contact found to match name then return the string No such property.
+*/
+
+while (false) {
+  // Setup
+const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(name, prop) {
+  // Only change code below this line
+  for (let n = 0; n < contacts.length ; n++) {
+    if (contacts[n].firstName === name) {
+      if (contacts[n].hasOwnProperty(prop)) {
+        return contacts[n][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  }
+  return "No such contact";
+  // Only change code above this line
+}
+
+lookUpProfile("Akira", "likes");
+}
+
+// Generate Random Fractions with JavaScript
+
+// Change randomFraction to return a random number instead of returning 0.
+
+while (false) {
+  function randomFraction() {
+
+    // Only change code below this line
+  
+    return Math.random();  // I only had to paste the function.
+  
+    // Only change code above this line
+  }
+}
+
+// Generate Random Whole Numbers with JavaScript
+
+// Use this technique to generate and return a random whole number in the range from 0 to 9.
+
+while (false) {
+  
 }
