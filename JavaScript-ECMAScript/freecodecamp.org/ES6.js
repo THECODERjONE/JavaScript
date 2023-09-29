@@ -328,14 +328,242 @@ console.log(bicycle.gear);
 
 // Use class Syntax to Define a Constructor Function
 
-/**
+/*
 Use the class keyword and write a constructor to create the Vegetable class.
 
-The Vegetable class allows you to create a vegetable object with a property name that gets passed to the constructor.
-
-
+The Vegetable class allows you to create a vegetable object with a property
+name that gets passed to the constructor.
  */
 
 while (false) {
+  // Only change code below this line
+class Vegetable {
+  constructor(name) {
+    this.name = name;
+  }
+}
+// Only change code above this line
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Should display 'carrot'
+}
+
+// Use getters and setters to Control Access to an Object
+
+/*
+Use the class keyword to create a Thermostat class. The constructor accepts
+a Fahrenheit temperature.
+
+In the class, create a getter to obtain the temperature in Celsius and
+a setter to set the temperature in Celsius.
+
+Remember that C = 5/9 * (F - 32) and F = C * 9.0 / 5 + 32, where F is the value
+of temperature in Fahrenheit, and C is the value of the same temperature in Celsius.
+
+Note: When you implement this, you will track the temperature inside the class in one scale,
+either Fahrenheit or Celsius.
+
+This is the power of a getter and a setter. You are creating an API for another user,
+who can get the correct result regardless of which one you track.
+
+In other words, you are abstracting implementation details from the user.
+*/
+
+while (false) {
+  // Only change code below this line
+class Thermostat {
+  constructor(fahrenheit) {
+    this._fahrenheit = fahrenheit;
+  }
+  get temperature() {
+    return ((5 / 9) * (this._fahrenheit - 32));
+  }
+  set temperature(celsius) {
+    return this._fahrenheit = (celsius * 9.0) / 5 + 32;
+  }
   
+} 
+// Only change code above this line
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+console.log(thermos.temperature)
+}
+
+// Create a Module Script
+
+// Add a script to the HTML document of type module and give it the source file of index.js
+
+while (false) {
+  <html>
+  <body>
+    {/* <!-- Only change code below this line --> */}
+<script type="module" src="index.js"></script>
+    {/* <!-- Only change code above this line --> */}
+  </body>
+</html>
+}
+
+// Use export to Share a Code Block
+
+// There are two string-related functions in the editor.
+// Export both of them using the method of your choice.
+
+while (false) {
+  const uppercaseString = (string) => {
+    return string.toUpperCase();
+  }
+  
+  const lowercaseString = (string) => {
+    return string.toLowerCase()
+  }
+  
+  // export { uppercaseString, lowercaseString };
+}
+
+// Reuse JavaScript Code Using import
+
+/*
+Add the appropriate import statement that will allow the current file
+to use the uppercaseString and lowercaseString functions you exported in the previous lesson.
+These functions are in a file called string_functions.js,
+ which is in the same directory as the current file.
+*/
+
+while (false) {
+  // import {uppercaseString, lowercaseString} from "./string_functions.js";
+  // Only change code above this line
+  
+  uppercaseString("hello");
+  lowercaseString("WORLD!");
+}
+
+// Use * to Import Everything from a File
+
+/*
+The code in this file requires the contents of the file: string_functions.js,
+that is in the same directory as the current file. Use the import * as syntax
+to import everything from the file into an object called stringFunctions.
+*/
+
+while (false) {
+  // import * as stringFunctions from "./string_functions.js";
+// Only change code above this line
+
+stringFunctions.uppercaseString("hello");
+stringFunctions.lowercaseString("WORLD!");
+}
+
+// Create an Export Fallback with export default
+
+/*
+The following function should be the fallback value for the module.
+Please add the necessary code to do so.
+*/
+
+while (false) {
+  // export default function subtract(x, y) {
+  //   return x - y;
+  // }
+}
+
+// Import a Default Export
+
+/*
+In the following code, import the default export from the math_functions.js file,
+found in the same directory as this file. Give the import the name subtract.
+*/
+
+while (false) {
+//  import subtract from "./math_functions.js";
+// Only change code above this line
+
+subtract(7,4);
+}
+
+// Create a JavaScript Promise
+
+/*
+Create a new promise called makeServerRequest.
+Pass in a function with resolve and reject parameters to the constructor.
+*/
+
+while (false) {
+  const makeServerRequest = new Promise((resolve, reject)=> {
+
+  })
+}
+
+// 
+
+/*
+Make the promise handle success and failure.
+If responseFromServer is true, call the resolve method to successfully complete the promise.
+Pass resolve a string with the value We got the data. If responseFromServer is false,
+use the reject method instead and pass it the string: Data not received.
+*/
+
+while (false) {
+  const makeServerRequest = new Promise((resolve, reject) => {
+    // responseFromServer represents a response from a server
+    let responseFromServer;
+      
+    if(responseFromServer) {
+      resolve("We got the data");// Change this line
+    } else {  
+      reject("Data not received");// Change this line
+    }
+  });
+}
+
+// Handle a Fulfilled Promise with then
+
+// Add the then method to your promise.
+// Use result as the parameter of its callback function and log result to the console.
+
+
+while (false) {
+  const makeServerRequest = new Promise((resolve, reject) => {
+    // responseFromServer is set to true to represent a successful response from a server
+    let responseFromServer = true;
+      
+    if(responseFromServer) {
+      resolve("We got the data");
+    } else {  
+      reject("Data not received");
+    }
+  });
+  makeServerRequest.then(result => {
+    console.log(result);
+  });
+}
+
+// Handle a Rejected Promise with catch
+
+/*
+Add the catch method to your promise.
+Use error as the parameter of its callback function and log error to the console.
+*/ 
+
+while (false) {
+  const makeServerRequest = new Promise((resolve, reject) => {
+    // responseFromServer is set to false to represent an unsuccessful response from a server
+    let responseFromServer = false;
+      
+    if(responseFromServer) {
+      resolve("We got the data");
+    } else {  
+      reject("Data not received");
+    }
+  });
+  
+  makeServerRequest.then(result => {
+    console.log(result);
+  });
+  
+  makeServerRequest.catch(error => {
+    console.log(error);
+  });
 }
