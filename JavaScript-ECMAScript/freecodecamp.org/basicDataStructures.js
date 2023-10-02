@@ -73,7 +73,7 @@ arr.splice(1, 4);
 console.log(arr);
 }
 
-Add Items Using splice()
+// Add Items Using splice()
 
 /*
 We have defined a function, htmlColorNames, which takes an array of HTML colors as an argument.
