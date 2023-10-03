@@ -192,3 +192,278 @@ while (false) {
       
       console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
 }
+
+// Create complex multi-dimensional arrays
+
+/*
+We have defined a variable, myNestedArray, set equal to an array. Modify myNestedArray, using any combination of strings,
+numbers, and booleans for data elements, so that it has exactly five levels of depth (remember, the outer-most array is level 1).
+Somewhere on the third level, include the string deep, on the fourth level, include the string deeper, and on the fifth level,
+include the string deepest.
+*/
+
+while (false) {
+  let myNestedArray = [
+    // Only change code below this line
+    ['unshift', false, 1, 2, 3, 'complex', 'nested'],
+    ['loop', 'shift', 6, 7, 1000, 'method'],
+    ['concat', false, [true, 'deep', ['spread', 'array']]],
+    ['mutate', [['deeper', 1327.98, 'splice', 'slice'], 'push']],
+    ['iterate', [1.3849, 7, [['8.4876', 'deepest'], 'arbitrary']], 'depth']
+    // Only change code above this line
+  ];
+}
+
+// Add Key-Value Pairs to JavaScript Objects
+
+/*
+A foods object has been created with three entries. Using the syntax of your choice, add three more entries to it:
+bananas with a value of 13, grapes with a value of 35, and strawberries with a value of 27.
+*/
+
+while (false) {
+  let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28
+  };
+  
+  // Only change code below this line
+  foods.bananas = 13;
+  foods.grapes = 35;
+  foods['strawberries'] = 27;
+  // Only change code above this line
+  
+  console.log(foods);
+}
+
+// Modify an Object Nested Within an Object
+
+// Here we've defined an object userActivity, which includes another object nested within it. Set the value of the online key to 45.
+
+while (false) {
+  let userActivity = {
+    id: 23894201352,
+    date: 'January 1, 2017',
+    data: {
+      totalUsers: 51,
+      online: 42
+    }
+  };
+  
+  // Only change code below this line
+  userActivity.data.online = 45;
+  // Only change code above this line
+  
+  console.log(userActivity);
+}
+
+// Access Property Names with Bracket Notation
+
+/*
+We've defined a function, checkInventory, which receives a scanned item as an argument.
+Return the current value of the scannedItem key in the foods object. You can assume that only valid keys will
+be provided as an argument to checkInventory.
+*/
+
+while (false) {
+  let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28,
+    bananas: 13,
+    grapes: 35,
+    strawberries: 27
+  };
+  
+  function checkInventory(scannedItem) {
+    // Only change code below this line
+  return foods[scannedItem];
+    // Only change code above this line
+  }
+  
+  console.log(checkInventory("apples"));
+}
+
+// Use the delete Keyword to Remove Object Properties
+
+// Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
+
+while (false) {
+  let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28,
+    bananas: 13,
+    grapes: 35,
+    strawberries: 27
+  };
+  
+  // Only change code below this line
+  delete foods['oranges'];
+  delete foods['plums'];
+  delete foods['strawberries'];
+  // Only change code above this line
+  
+  console.log(foods);
+}
+
+// Check if an Object has a Property
+
+/*
+Finish writing the function so that it returns true if the object passed to it contains all four names, Alan,
+Jeff, Sarah and Ryan and returns false otherwise.
+*/
+
+while (false) {
+  let users = {
+    Alan: {
+      age: 27,
+      online: true
+    },
+    Jeff: {
+      age: 32,
+      online: true
+    },
+    Sarah: {
+      age: 48,
+      online: true
+    },
+    Ryan: {
+      age: 19,
+      online: true
+    }
+  };
+  
+  function isEveryoneHere(userObj) {
+    // Only change code below this line
+    return 'Alan' in userObj &&
+    'Jeff' in userObj &&
+    'Sarah' in userObj &&
+    userObj.hasOwnProperty('Ryan');
+    // Only change code above this line
+  }
+  
+  console.log(isEveryoneHere(users));
+}
+
+// Iterate Through the Keys of an Object with a for...in Statement
+
+/*
+We've defined a function countOnline which accepts one argument, allUsers. Use a for...in statement inside this function to loop through the allUsers object and return the number of users whose online property is set to true. An example of an object which could be passed to countOnline is shown below. Each user will have an online property set to either true or false.
+
+{
+  Alan: {
+    online: false
+  },
+  Jeff: {
+    online: true
+  },
+  Sarah: {
+    online: false
+  }
+}
+*/
+
+while (false) {
+  const users = {
+    Alan: {
+      online: false
+    },
+    Jeff: {
+      online: true
+    },
+    Sarah: {
+      online: false
+    }
+  }
+  
+  function countOnline(allUsers) {
+    // Only change code below this line
+  let usersOnlineCount = 0;
+  for (let user in allUsers) {
+    if (allUsers[user].online === true) {
+      usersOnlineCount++;
+    }
+  }
+  return usersOnlineCount;
+    // Only change code above this line
+  }
+  
+  console.log(countOnline(users));
+}
+
+// Generate an Array of All Object Keys with Object.keys()
+
+// Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in the object it receives
+// as an argument.
+
+while (false) {
+  let users = {
+    Alan: {
+      age: 27,
+      online: false
+    },
+    Jeff: {
+      age: 32,
+      online: true
+    },
+    Sarah: {
+      age: 48,
+      online: false
+    },
+    Ryan: {
+      age: 19,
+      online: true
+    }
+  };
+  
+  function getArrayOfUsers(obj) {
+    // Only change code below this line
+  return Object.keys(obj);
+    // Only change code above this line
+  }
+  
+  console.log(getArrayOfUsers(users));
+}
+
+// Modify an Array Stored in an Object
+
+/*
+Take a look at the object we've provided in the code editor. The user object contains three keys.
+The data key contains five keys, one of which contains an array of friends.
+From this, you can see how flexible objects are as data structures. We've started writing a function addFriend.
+Finish writing it so that it takes a user object and adds the name of the friend argument
+to the array stored in user.data.friends and returns that array.
+*/
+
+while (false) {
+  let user = {
+    name: 'Kenneth',
+    age: 28,
+    data: {
+      username: 'kennethCodesAllDay',
+      joinDate: 'March 26, 2016',
+      organization: 'freeCodeCamp',
+      friends: [
+        'Sam',
+        'Kira',
+        'Tomo'
+      ],
+      location: {
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'USA'
+      }
+    }
+  };
+  
+  function addFriend(userObj, friend) {
+    // Only change code below this line
+    userObj.data.friends.push(friend);
+  return userObj.data.friends;
+    // Only change code above this line
+  }
+  
+  console.log(addFriend(user, 'Pete'));
+}
