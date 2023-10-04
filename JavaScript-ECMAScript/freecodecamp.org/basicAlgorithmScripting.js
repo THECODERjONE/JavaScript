@@ -163,5 +163,92 @@ For the purpose of this challenge, do not use the built-in .repeat() method.
 */
 
 while (false) {
+  function repeatStringNumTimes(str, num) {
+    let strNumTimes = '';
+    if (num <= 0) {
+      return strNumTimes;
+    } else {
+    for (let i = 1; i <= num; i++) {
+      strNumTimes += str;
+      }
+    }
+    return strNumTimes;
+  }
+  repeatStringNumTimes("abc", 3);
+}
+
+// Truncate a String
+
+// Truncate a string (first argument) if it is longer than the given maximum string length (second argument).
+// Return the truncated string with a ... ending.
+
+while (false) {
+  function truncateString(str, num) {
+    let strT = '';
+    if (num >= str.length) {
+      strT = str;
+    } else {
+      for (let i = 0; i <= num; i++) {
+        if (i === num) {
+          strT = strT + '...';
+        } else {
+        strT = strT + str[i];
+        }
+      }
+    }
+    return strT;
+  }
+
+  truncateString("A-tisket a-tasket A green and yellow basket", 8);
+}
+
+// Finders Keepers
+
+/*
+Create a function that looks through an array arr and returns the first element in it that passes a 'truth test'.
+This means that given an element x, the 'truth test' is passed if func(x) is true. If no element passes the test, return undefined.
+*/
+
+while (false) {
+  function findElement(arr, func) {
+    let num = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (func(arr[i]) === true) {
+        return arr[i];
+      }
+    }
+    return undefined;
+  }
+  
+  findElement([1, 2, 3, 4], num => num % 2 === 0);
+}
+
+// Boo who
+
+// Check if a value is classified as a boolean primitive. Return true or false.
+
+// Boolean primitives are true and false.
+
+while (false) {
+  function booWho(bool) {
+    let isPrimitiveBoolean;
+    (bool === true || bool === false) ?     // Wrongfully implemented it as 'bool === (true || false)' first
+    isPrimitiveBoolean = true :
+    isPrimitiveBoolean = false;
+    return isPrimitiveBoolean
+  }
+
+  booWho(null);
+}
+
+// Title Case a Sentence
+
+/*
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+
+For the purpose of this exercise, you should also capitalize connecting words like the and of.
+*/
+
+while (false) {
   
 }
