@@ -250,5 +250,142 @@ For the purpose of this exercise, you should also capitalize connecting words li
 */
 
 while (false) {
+  function titleCase(str) {
+    str = str.toLowerCase();
+    let upperStr = '';
+    for (let i = 0; i<str.length; i++) {
+      if (i === 0) {
+        upperStr += str[i].toUpperCase();
+      } else {
+        if (str[(i - 1)] === "'") {
+          upperStr += str[i].toLowerCase();
+        } else {
+          if (str[(i - 1)] === " ") {
+            upperStr += str[i].toUpperCase();
+        } else {
+          upperStr += str[i].toLowerCase();
+          }
+        }
+      }
+    }
+    return upperStr;      
+  } 
+  titleCase("I'm a little tea pot");
+}
+// Once again, I missplaced the return inside the for loop.
+
+// Slice and Splice
+
+// You are given two arrays and an index.
+
+// Copy each element of the first array into the second array, in order.
+
+// Begin inserting elements at index n of the second array.
+
+// Return the resulting array. The input arrays should remain the same after the function runs.
+
+while (false) {
+  function frankenSplice(arr1, arr2, n) {
+    let mixedArr = arr2.slice();
+    mixedArr.splice(n, 0, ...arr1);
+    return mixedArr;
+  }
   
+  frankenSplice([1, 2, 3], [4, 5, 6], 1);
+}
+
+// Falsy Bouncer
+
+// Remove all falsy values from an array. Return a new array; do not mutate the original array.
+
+// Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+
+// Hint: Try converting each value to a Boolean.
+
+while (false) {
+  function bouncer(arr) {
+    let arrCopy = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i]) {                           // I thought I needed to use "if(arr[i] === true)"
+        arrCopy.push(arr[i]);
+      }
+    }
+    return arrCopy;
+  }
+  
+  bouncer([7, "ate", "", false, 9]);
+}
+
+// Where do I Belong
+
+/*
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted.
+The returned value should be a number.
+
+For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+
+Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20]
+and 19 is less than 20 (index 2) and greater than 5 (index 1).
+*/
+
+while (false) {
+  function getIndexToIns(arr, num) {
+    let arrCopy = arr.slice();
+    arrCopy.push(num);
+    arrCopy = arrCopy.sort((a, b) => a - b);
+    let numIndex = arrCopy.indexOf(num);
+    console.log(arrCopy);
+    return numIndex;
+  }
+  
+  getIndexToIns([5, 3, 20, 3], 50);
+}
+
+// Mutations
+
+/*
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+
+The arguments ["hello", "hey"] should return false because the string hello does not contain a y.
+
+Lastly, ["Alien", "line"], should return true because all of the letters in line are present in Alien.
+*/
+
+while (false) {
+  function mutation(arr) {
+    let shareChars = true;
+    let arr0 = arr[0].slice();
+    arr0 = arr0.toLowerCase();
+    let arr1 = arr[1].slice();
+    arr1 = arr1.toLowerCase();
+    for (let i = 0; i < arr[1].length; i++) {
+      if (arr0.indexOf(arr1[i]) < 0) {
+        shareChars = false;
+      }
+    }
+    return shareChars;
+  }
+  
+  mutation(["hello", "hey"]);
+}
+
+// Chunky Monkey
+
+// Write a function that splits an array (first argument) into groups the length of size (second argument)
+// and returns them as a two-dimensional array.
+
+while (false) {
+  function chunkArrayInGroups(arr, size) {
+    let auxArr = arr.slice();
+    let arrFinal = [];
+    for (let i = 0; auxArr.length > 0; i++) {
+      let pushArr = auxArr.splice(0, size,);
+      arrFinal.push(pushArr);
+    }
+    return arrFinal;
+  }
+  
+  chunkArrayInGroups(["a", "b", "c", "d"], 2);
 }
