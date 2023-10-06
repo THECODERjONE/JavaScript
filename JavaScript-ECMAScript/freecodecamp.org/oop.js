@@ -452,5 +452,39 @@ while (false) {
 // Then, create a method getWeight that returns the value of weight 15.
 
 while (false) {
-  
+  function Bird() {
+    let weight = 15;
+    this.getWeight = function() {
+      return weight;
+    }
+  }
+}
+
+// Understand the Immediately Invoked Function Expression (IIFE)
+
+// Rewrite the function makeNest and remove its call so instead it's an anonymous immediately invoked function expression (IIFE).
+
+while (false) {
+  (function() {
+    console.log("A cozy nest is ready");
+  })();
+}
+
+// Use an IIFE to Create a Module
+
+// Create a module named funModule to wrap the two mixins isCuteMixin and singMixin. funModule should return an object.
+
+while (false) {
+  let funModule = (function(){
+    return {
+      isCuteMixin: function(obj){
+        obj.isCute = function() {
+          return true;
+        };
+      },
+      singMixin: function(obj){
+        console.log("Singing to an awesome tune");
+      }
+    }
+  })();
 }
