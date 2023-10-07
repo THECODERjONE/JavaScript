@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #game-button {
+            padding: 20px;
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>1 vs 1 NPC Card Game</h2>
+    <button id="game-button">Draw Cards</button>
+    <p id="game-status"></p>
+
+    <script>
+        var deck = [
+            {name: 'NPC1', attack: 5, defense: 5, life: 15},
+            {name: 'NPC2', attack: 6, defense: 4, life: 15},
+            // Add more NPCs as needed
+        ];
+
+        // Shuffle function to randomize the deck order
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffle(deck);
+
+        var player1Deck = [...deck];
+        var player2Deck = [...deck];
+
+        document.getElementById('game-button').addEventListener('click', function() {
+            if(player1Deck.length === 0 || player2Deck.length === 0) {
+                document.getElementById('game-status').textContent = 'Game Over';
+                return;
+            }
+
+            var player1Card = player1Deck.pop(); // Draw the top card
+            var player2Card = player2Deck.pop(); // Draw the top card
+
+            var result = '';
+            var player1Attack = player1Card.attack + Math.floor(Math.random() * 3) - 1;
+            var player2Attack = player2Card.attack + Math.floor(Math.random() * 3) - 1;
+            var player1Defense = player1Card.defense + Math.floor(Math.random() * 3) - 1;
+            var player2Defense = player2Card.defense + Math.floor(Math.random() * 3) - 1;
+
+            var player1LifeAfterAttack = player1Card.life + player1Defense - player2Attack;
+            var player2LifeAfterAttack = player2Card.life + player2Defense - player1Attack;
+
+            if(player1LifeAfterAttack > player2LifeAfterAttack) {
+                result = 'Player 1 wins with ' + player1Card.name + '. Player 2 had ' + player2Card.name;
+            } else if(player1LifeAfterAttack < player2LifeAfterAttack) {
+                result = 'Player 2 wins with ' + player2Card.name + '. Player 1 had ' + player1Card.name;
+            } else {
+                result = 'It\'s a draw. Both players had ' + player1Card.name;
+            }
+
+            document.getElementById('game-status').textContent = result;
+        });
+    </script>
+</body>
+</html>
