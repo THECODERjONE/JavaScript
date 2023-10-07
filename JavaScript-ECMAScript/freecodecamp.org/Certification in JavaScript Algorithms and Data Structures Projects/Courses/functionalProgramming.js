@@ -743,5 +743,63 @@ Note: Your function should not use any kind of for or while loops or the forEach
 // */
 
 while (false) {
+  const squareList = arr => {
+    // Only change code below this line
+    return arr
+      .filter(num => (num > 0) && (num % 1 === 0)) 
+      .map(num => num * num);
+    // Only change code above this line
+  };
+  
+  const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+  console.log(squaredIntegers);
+}
+
+// Sort an Array Alphabetically using the sort Method
+
+// Use the sort method in the alphabeticalOrder function to sort the elements of arr in alphabetical order.
+// The function should return the sorted array.
+
+while (false) {
+  function alphabeticalOrder(arr) {
+    // Only change code below this line
+  return arr.sort(function(a, b) {
+      return a === b ? 0 : a < b ? -1 : 1;
+    });
+    // Only change code above this line
+  }
+  
+  alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+}
+
+// Return a Sorted Array Without Changing the Original Array
+
+/*
+Use the sort method in the nonMutatingSort function to sort the elements of an array in ascending order.
+The function should return a new array, and not mutate the globalArray variable.
+*/
+
+while (false) {
+  const globalArray = [5, 6, 3, 2, 9];
+
+  function nonMutatingSort(arr) {
+    // Only change code below this line
+    let auxArr = arr.slice();
+    return auxArr.sort(function(a, b) {
+      return a - b;
+    })
+    // Only change code above this line
+  }
+
+  nonMutatingSort(globalArray);
+}
+
+// Split a String into an Array Using the split Method
+
+/*
+Use the split method inside the splitify function to split str into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
+*/
+
+while (false) {
   
 }
