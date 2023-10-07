@@ -797,7 +797,25 @@ while (false) {
 // Split a String into an Array Using the split Method
 
 /*
-Use the split method inside the splitify function to split str into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.
+Use the split method inside the splitify function to split str into an array of words. The function should return the array.
+Note that the words are not always separated by spaces, and the array should not contain punctuation.
+*/
+
+while (false) {
+  function splitify(str) {
+    // Only change code below this line
+    return str.split(/\W/);
+    // Only change code above this line
+  }
+  splitify("Hello World,I-am code");
+}
+
+// Combine an Array into a String Using the join Method
+
+/*
+Use the join method (among others) inside the sentensify function to make a sentence from the words in the string str.
+The function should return a string. For example, I-like-Star-Wars would be converted to I like Star Wars. For this challenge,
+do not use the replace method.
 */
 
 while (false) {
