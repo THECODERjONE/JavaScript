@@ -819,5 +819,91 @@ do not use the replace method.
 */
 
 while (false) {
+  function sentensify(str) {
+    // Only change code below this line
+    let auxArr = str.split(/[^a-zA-Z]+/);
+    let sentence = auxArr.join(' ');
+    return sentence;
+    // Only change code above this line
+  }
   
+  sentensify("May-the-force-be-with-you");
+}
+
+// Apply Functional Programming to Convert Strings to URL Slugs
+
+/*
+Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use replace. Here are the requirements:
+
+The input is a string with spaces and title-cased words
+
+The output is a string with the spaces between words replaced by a hyphen (-)
+
+The output should be all lower-cased letters
+
+The output should not have any spaces
+*/
+
+while (false) {
+// Only change code below this line
+  function urlSlug(title) {
+    let auxStr = title.slice();
+    return auxStr
+      .toLowerCase()
+      .trim()
+      .split(/\s+/)
+      .join("-");
+}
+// Only change code above this line
+urlSlug("A Mind Needs Books Like A Sword Needs A Whetstone");
+}
+
+// Use the every Method to Check that Every Element in an Array Meets a Criteria
+
+// Use the every method inside the checkPositive function to check if every element in arr is positive.
+// The function should return a Boolean value.
+
+while (false) {
+  function checkPositive(arr) {
+    // Only change code below this line
+    return arr.every(function(digit){
+      return digit > 0;
+    });
+    // Only change code above this line
+  }
+    checkPositive([1, 2, 3, -4, 5]);
+}
+
+// Use the some Method to Check that Any Elements in an Array Meet a Criteria
+
+// Use the some method inside the checkPositive function to check if any element in arr is positive. The function should return a Boolean value.
+
+while (false) {
+  function checkPositive(arr) {
+    // Only change code below this line
+    return arr.some(function(digit) {
+      return digit > 0;
+    })
+    // Only change code above this line
+  }
+  
+  checkPositive([1, 2, 3, -4, 5]);
+}
+
+// Introduction to Currying and Partial Application
+
+// Fill in the body of the add function so it uses currying to add parameters x, y, and z.
+
+while (false) {
+  function add(x) {
+    // Only change code below this line
+  return function(y) {
+    return function(z) {
+      return x + y + z;
+    }
+  }
+      // Only change code above this line
+  }
+  
+  add(10)(20)(30);
 }
