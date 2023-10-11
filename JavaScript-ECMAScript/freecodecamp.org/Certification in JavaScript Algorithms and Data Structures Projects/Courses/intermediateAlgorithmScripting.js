@@ -211,3 +211,131 @@ while (false) {
   
   fearNotLetter("abce");
 }
+
+// Sorted Union
+
+/*
+Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+Check the assertion tests for examples.
+*/
+
+while (false) {
+  function uniteUnique() {
+    let auxArr = [];
+    for(let i = 0; i < arguments.length; i++) {
+      for(let j = 0; j < arguments[i].length; j++) {
+        if(auxArr.indexOf(arguments[i][j]) === -1) {
+          auxArr.push(arguments[i][j]);
+        } 
+      }
+    }
+    return auxArr;
+  }
+  
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+}
+
+// Convert HTML Entities
+
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+while (false) {
+  function convertHTML(str) {
+    const mapHTML = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&apos;'
+    };
+    return str.replace(/[&<>"']/g, match => mapHTML[match]);
+  }
+  
+  convertHTML("Dolce & Gabbana");
+}
+
+// Sum All Odd Fibonacci Numbers
+
+/*
+Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+
+The first two numbers in the Fibonacci sequence are 0 and 1. Every additional number in the sequence is the sum of the two previous numbers.
+The first seven numbers of the Fibonacci sequence are 0, 1, 1, 2, 3, 5 and 8.
+
+For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.*/
+
+while (false) {
+  function sumFibs(num) {
+    if(num <= 0) {
+      return "Invalid";
+    }
+    let aux1 = 0;
+    let aux2 = 1;
+    let resultSum = 0;
+    for(let i = 1; aux2 <= num; i++) {
+      if(aux2 % 2 !== 0) {
+        resultSum += aux2;
+      }
+      let auxVar = aux2;
+      aux2 += aux1;
+      aux1 = auxVar;
+
+    }
+    return resultSum;
+  }
+  
+  sumFibs(4);
+}
+
+// Sum All Primes
+
+/*A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. For example, 2 is a prime number because it is
+only divisible by 1 and 2. In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
+
+Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.*/
+
+while (false) {
+  function sumPrimes(num) {
+    if(num <= 1) {
+      return "Invalid";
+    }
+    let resultSum = 0;
+    let isPrime = false;
+    for(let i = 2; i <= num; i++) {
+      for(let j = 2; j <= i; j++) {
+        if(i % j === 0) {
+          if (i === j) {
+            isPrime = true;
+          } else {
+            isPrime = false;
+            break;
+          }
+        }
+      }
+      if(isPrime === true) {
+        resultSum += i;
+      }
+    }
+    return resultSum;
+  }
+  sumPrimes(10);
+}
+
+// Smallest Common Multiple
+
+/* Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential
+numbers in the range between these parameters.
+
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all
+numbers between 1 and 3. The answer here would be 6.*/
+
+while (false) {
+  
+}
