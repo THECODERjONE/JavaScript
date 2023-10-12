@@ -337,5 +337,50 @@ For example, if given 1 and 3, find the smallest common multiple of both 1 and 3
 numbers between 1 and 3. The answer here would be 6.*/
 
 while (false) {
+  function smallestCommons(arr) {
+    let [min, max] = arr
+    .slice()
+    .sort((a, b) => a - b);
+    const range = Array(max - min + 1)
+    .fill(0)
+    .map((_, i) => i + min);
+    const upperBound = range.reduce((prod, curr) => prod * curr);
+    for (let multiple = max; multiple <= upperBound; multiple += max) {
+      const divisible = range.every((value) => multiple % value === 0);
+      if (divisible) {
+        return multiple;
+      }
+    }
+  }
+    
+  smallestCommons([1,5]);
+}
+
+// Drop it
+
+/*Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func
+returns true when the iterated element is passed through it.
+
+Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.*/
+
+while (false) {
+  function dropElements(arr, func) {
+    let range = arr.slice().length;
+    for(let i = 0; i < range; i++) {
+      if(func(arr[0])) {
+        break;
+      } else {
+        arr.shift();
+      }
+    }
+    return arr;
+  }
+}
+
+// Steamroller
+
+// Flatten a nested array. You must account for varying levels of nesting.
+
+while (false) {
   
 }
