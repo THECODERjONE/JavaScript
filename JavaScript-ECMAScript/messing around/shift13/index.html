@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Vaya pego</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            function rot13(str) {
+  let auxArr = str.split('');
+  let auxStr = '';
+  auxArr.forEach(element => {
+    if(/[A-Za-z]/.test(element)) {
+      element = element.toUpperCase();            
+      let charCode = element.charCodeAt();
+      let auxChar = '';
+      if(charCode <= 77) {
+        auxChar = String.fromCharCode(charCode + 13);
+        auxStr += auxChar;
+      } else if(charCode > 77) {
+        auxChar = String.fromCharCode(charCode - 13);
+        auxStr += auxChar;
+      }
+    } else {
+      auxStr += element;
+    }
+  });
+  return auxStr;
+}
+
+// Prompt for a ROT13-encoded string
+const encodedString = prompt("Enter the ROT13-encoded string:");
+
+// Decode the ROT13-encoded string
+const decodedString = rot13(encodedString);
+
+// Display the decoded string
+alert("Decoded String: " + decodedString);
+
+        </script>
+    
+    </body>
+</html>
