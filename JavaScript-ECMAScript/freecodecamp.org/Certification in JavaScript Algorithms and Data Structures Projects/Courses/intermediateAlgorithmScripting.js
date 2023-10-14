@@ -382,5 +382,175 @@ while (false) {
 // Flatten a nested array. You must account for varying levels of nesting.
 
 while (false) {
+  function steamrollArray(arr) {
+    const flattenedArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (Array.isArray(arr[i])) {
+        flattenedArray.push(...steamrollArray(arr[i]));
+      } else {
+        flattenedArray.push(arr[i]);
+      }
+    }
+    return flattenedArray;
+  };
+
+  steamrollArray([1, [2], [3, [[4]]]]);
+}
+
+// Binary Agents
+
+// Return an English translated sentence of the passed binary string.
+
+// The binary string will be space separated.
+
+while (false) {
+  function binaryAgent(str) {
+  let binaryArray = str.split(' ');
+  let englishStr = '';
+
+  for (let i = 0; i < binaryArray.length; i++) {
+    englishStr += String.fromCharCode(parseInt(binaryArray[i], 2));
+  }
+
+  return englishStr;
+  }
+
+const englishSentence = binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+}
+
+// Everything Be True
+
+/*
+Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+
+In other words, you are given an array collection of objects. The predicate pre will be an object property and you need to return
+true if its value is truthy. Otherwise, return false.
+
+In JavaScript, truthy values are values that translate to true when evaluated in a Boolean context.
+
+Remember, you can access object properties through either dot notation or [] notation.
+*/
+
+while (false) {
+  function truthCheck(collection, pre) {
+    let isTruthy = true;
+    for(let i = 0; i < collection.length; i++) {            // I like this version much more: return collection.every(obj => obj[pre]); (just one line)
+      if(!collection[i][pre]) {
+      isTruthy = false;
+      } 
+    } 
   
+    return isTruthy;
+  }
+  
+  truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+}
+
+// Arguments Optional
+
+/*Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+
+For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+
+Calling this returned function with a single argument will then return the sum:
+
+var sumTwoAnd = addTogether(2);
+sumTwoAnd(3) returns 5.
+
+If either argument isn't a valid number, return undefined.*/
+
+while (false) {
+  function addTogether() {
+    for(let i = 0; i < arguments.length; i++) {
+      if(typeof(arguments[i]) !== 'number') {
+        return undefined;
+      }
+    }
+    if(arguments.length === 2) {
+        return arguments[0]+arguments[1];
+    } else if(arguments.length === 1) {
+      let arg1 = arguments[0];
+      return function (arg2) {
+        if (typeof arg2 === 'number') {
+          return arg1 + arg2;
+          }
+        return undefined;
+        }
+      }
+  }
+  addTogether(2,3);
+}
+
+// Make a Person
+
+/*Fill in the object constructor with the following methods below:
+
+getFirstName()
+getLastName()
+getFullName()
+setFirstName(first)
+setLastName(last)
+setFullName(first, last)
+Run the tests to see the expected output for each method. These methods must be the only available means of interacting with the object.
+Each test will declare a new Person instance as new Person('Bob', 'Ross').*/
+
+while (false) {
+  const Person = function(first, last) {
+    let firstName = first;
+    let lastName = last;
+    this.getFirstName = function() {
+       return firstName };
+    this.getLastName = function() {
+       return lastName };
+    this.getFullName = function() {
+       return `${this.getFirstName()} ${this.getLastName()}` };
+    this.setFirstName = function(first) {
+      return firstName = first;
+    };
+    this.setLastName = function(last) {
+      return lastName = last;
+    };
+    this.setFullName = function(first, last) {
+      this.setFirstName(first);
+      this.setLastName(last);
+      return this.getFullName();
+    };
+  };
+}
+
+// Map the Debris
+
+/*According to Kepler's Third Law, the orbital period  T
+  of two point masses orbiting each other in a circular or elliptic orbit is:
+
+T=2π√(a^3/μ)
+ 
+a => is the orbit's semi-major axis
+μ=GM
+  is the standard gravitational parameter
+
+G => is the gravitational constant,
+
+M => is the mass of the more massive body.
+
+Return a new array that transforms the elements' average altitude into their orbital periods (in seconds).
+
+The array will contain objects in the format {name: 'name', avgAlt: avgAlt}.
+
+The values should be rounded to the nearest whole number. The body being orbited is Earth.
+
+The radius of the earth is 6367.4447 kilometers, and the GM value of earth is 398600.4418 km3s-2.*/
+
+while (false) {
+  function orbitalPeriod(arr) {
+    const GM = 398600.4418;
+    const earthRadius = 6367.4447;
+    return arr.map(({name, avgAlt}) => {
+      const totalAlt = earthRadius + avgAlt;
+      let orbitalPeriod = Math.round(2 * Math.PI * Math.sqrt(Math.pow(totalAlt, 3)/GM));
+      return {name, orbitalPeriod}
+    });
+  }
+  
+  orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
 }
