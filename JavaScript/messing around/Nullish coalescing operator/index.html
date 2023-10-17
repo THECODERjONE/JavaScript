@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <script>
+        // If user press scape or cancel, it should be taged as alive.
+        // If the user types anything different than yes, it should be tagged as a bot
+        let isAlive = prompt("Are you alive?", "No");
+        let isAliveAlert;
+        if ((isAlive !== "Yes") && (isAlive !== "No")) {
+            isAliveAlert = "Its a bot";
+        }
+        else if (isAlive === "Yes") {
+            isAliveAlert = "Life confirmed.";
+        }
+        else isAliveAlert = "Joke rejected.";
+        alert(isAliveAlert);
+    </script>
+    </body>
+</html>
