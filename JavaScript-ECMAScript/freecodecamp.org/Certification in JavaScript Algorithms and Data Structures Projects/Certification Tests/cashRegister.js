@@ -1,4 +1,5 @@
-/*Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price), payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
+/*Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price),
+payment as the second argument (cash), and cash-in-drawer (cid) as the third argument.
 
 cid is a 2D array listing available currency.
 
@@ -34,3 +35,68 @@ See below for an example of a cash-in-drawer array:
   ["ONE HUNDRED", 100]
 ]*/
 
+/*
+  let cid = {
+    penny: stock.penny * unitValue.penny,
+    nickel: stock.penny * unitValue.penny,
+    dime: stock.penny * unitValue.penny,
+    quarter: stock.penny * unitValue.penny,
+    oneDollar: stock.penny * unitValue.penny,
+    fiveDollar: stock.penny * unitValue.penny,
+    tenDollar: stock.penny * unitValue.penny,
+    twentyDollar: stock.penny * unitValue.penny,
+    fiftyDollar: stock.penny * unitValue.penny,
+    hundredDollar: stock.penny * unitValue.penny;
+};
+*/
+
+const currencyUnit = [
+  ["PENNY", 0.01],
+  ["NICKEL", 0.05],
+  ["DIME", 0.1],
+  ["QUARTER", 0.25],
+  ["ONE", 1],
+  ["FIVE", 5],
+  ["TEN", 10],
+  ["TWENTY", 20],
+  ["FIFTY", 50],
+  ["ONE HUNDRED", 100]
+];
+
+function checkCashRegister(price, cash, cid) {
+  const change = cash - price;
+  let changeToCover = change;
+  let changeCovered = 0;
+  let changeUnits = [];
+
+  let totalCID = 0;
+  for (let i = 0; i < cid.length; i++) {
+    totalCID += cid[i][1];
+  };
+  totalCID = totalCID.toFixed(2);
+
+  for(let i = cid.length - 1; (i >= 0) && (changeCovered !== change); i--) {
+    const currentCurrIndex = currencyUnit.findIndex(unit => unit[0] === cid[i][0]);
+    const currentCValue = currencyUnit[currentCurrIndex][1];
+    let currentCChange = 0;
+    while ((currentCValue <= changeToCover) && (currentCChange < cid[i][1])) {
+      changeCovered += currentCValue;
+      currentCChange += currentCValue;
+      changeToCover -= currentCValue;
+      changeToCover = changeToCover.toFixed(2);
+    }
+    if(currentCChange > 0) {
+      changeUnits.push([cid[i][0], currentCChange]);
+    }
+  };
+ 
+  if (changeToCover == 0) {
+    if (totalCID == change) {
+      return { status: "CLOSED", change: cid };
+    } else {
+      return { status: "OPEN", change: changeUnits };
+    }
+  } else {
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+  }
+}
